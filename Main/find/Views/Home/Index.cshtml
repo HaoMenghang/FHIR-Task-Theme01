@@ -1,0 +1,313 @@
+﻿@{
+    ViewBag.Title = "null";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding-bottom: 100px;
+            ;
+            background-color: white;
+        }
+
+        .login {
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: auto;
+            border: 1px solid darkgray;
+            border-radius: 10px;
+            box-shadow: 5px 5px 18px #888888;
+            background-color: white;
+        }
+
+        .login-body {
+            width: 87%;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            font-size：18px;
+            height: 50px;
+            line-height: 50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: rgba(48, 48, 250, 0.712);
+            font-weight: 400;
+            font-size: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .login-line {
+            margin: 20px auto;
+        }
+
+        .login span {
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+
+        .login-input {
+            display: inline-block;
+        }
+
+            .login-input input {
+                width: 250px;
+                height: 40px;
+                line-height: 40px;
+                border-radius: 5px;
+            }
+
+                .login-input input:focus {
+                    outline: none;
+                    border: 1px solid blue;
+                }
+
+        .submit {
+            margin: 35px auto 0px;
+            text-align: center;
+        }
+
+            .submit button {
+                width: 70px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+
+                .submit button:hover {
+                    opacity: 0.8;
+                }
+
+        .headered {
+            width: 70%;
+            margin: 0px auto 50px;
+            margin-bottom: 50px;
+        }
+
+        .title {
+            height: 50px;
+            line-height: 50px;
+            margin: 0px auto 0px;
+            text-align: center;
+            font-size: 21px;
+            border: 1px solid #98bf21;
+        }
+
+            .title p {
+                font-size: 1.2em;
+                margin: 0 auto;
+            }
+
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            #customers td,
+            #customers th {
+                font-size: 1em;
+                border: 1px solid #98bf21;
+                padding: 3px 7px 2px 7px;
+                height: 40px;
+            }
+
+            #customers th {
+                font-size: 1.1em;
+                text-align: left;
+                font-weight: 400;
+                height: 50px;
+            }
+
+            #customers tr.alt td {
+                color: #000000;
+                background-color: #EAF2D3;
+                height: 50px;
+            }
+
+        .footer {
+            width: 70%;
+            border-bottom: 1px solid #98bf21;
+            margin: 0 auto;
+        }
+
+        .tab {
+            background-color: white;
+            display: none;
+            position:relative;
+        }
+
+        .downPdf {
+            position: absolute;
+            bottom:-80px;
+            right: 45%;
+            width:130px;
+            height:50px;
+            line-height:50px;
+            border-radius:10px;
+            font-size:14px;
+        }
+
+        .clearfix:before,
+        :after {
+            content: "";
+            display: block;
+            height: 0px;
+            visibility: hidden;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="logins" class="login">
+
+        <div class="header">
+            <p>Input Patient ID</p>
+        </div>
+        <div class="login-body">
+            <div class="login-line">
+                <span>User ID：</span>
+                <div class="login-input">
+                    <input type="text" id="userId">
+                </div>
+            </div>
+        </div>
+        <div class="submit">
+            <button type="submit" id="btnSelect">
+                Confirm
+            </button>
+        </div>
+
+    </div>
+
+    <div id="tab" class="tab">
+
+        <div class="headered">
+            <div class="title">
+                <p>patient info</p>
+            </div>
+            <table id="customers" class="AddUser" align="left">
+                <tr>
+                    <th style="text-align:center;font-weight:700">name</th>
+                    <th style="text-align:center;font-weight:700">birthDate</th>
+                    <th style="text-align:center;font-weight:700">gender</th>
+                    <th style="text-align:center;font-weight:700">address</th>
+                    <th style="text-align:center;font-weight:700">phone</th>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+            <div class="title">
+                <p>last Observation</p>
+            </div>
+            <div class="title">
+                <p>Observation type:Vital-signs</p>
+            </div>
+            <table id="customers" class="listAdd2" align="left">
+                <tr>
+                    <th style="text-align:center;font-weight:700">effectiveDateTime</th>
+                    <th style="text-align:center;font-weight:700">issued</th>
+                    <th style="text-align:center;font-weight:700">lastUpdated</th>
+                    <th style="text-align:center;font-weight:700">quantity</th>
+                </tr>
+            </table>
+        </div>
+        <button id="renderPdf" class="downPdf">DOWNLOAD PDF</button>
+    </div>
+    <script src="~/Content/jQuery_v3.1.1.min.js"></script>
+    <script src="/Content/js/html2canvas.js"></script>
+    <script src="/Content/js/jsPdf.debug.js"></script>
+</body>
+</html>
+<script>
+    $(function () {
+        $('#btnSelect').click(function () {
+            //
+            $("#logins").hide();
+            $('.tab').css('display', 'block');
+            var userid = $("#userId").val();
+            $.get("https://localhost:5001/api/Patient/GetPatient", { "id":userid }, function (data) {
+                id = data.id;  
+                var temp = 'tr align=center"><td align="center">';
+                temp += data.name[0].family;
+                temp += '</td><td align="center">';
+                temp += data.birthDate;
+                temp += '</td><td align="center">';
+                temp += data.gender;
+                temp += '</td><td align="center">';
+                temp += data.address[0].city;
+                temp += '</td><td align="center">';
+                temp += data.telecom[0].value;
+                temp += '</td></tr>';
+                $(".AddUser").append(temp);
+            })  
+            $.get("https://localhost:5001/api/Observation/GetObservations", { "id": userid }, function (res) {
+                console.log(res);
+                var obsId = res[0].entry[0].resource.id;
+                $.get("https://localhost:5001/api/Observation/GetSingleObservation", { "id": obsId }, function (result) {
+                    var temp1 = 'tr align=center"><td align="center">';
+                    temp1 += result.effectiveDateTime;
+                    temp1 += '</td><td align="center">';
+                    temp1 += result.issued;
+                    temp1 += '</td><td align="center">';
+                    temp1 += result.meta.lastUpdated;
+                    temp1 += '</td><td align="center">';
+                    temp1 += result.valueQuantity.value+result.valueQuantity.code;
+                    temp1 += '</td></tr>';
+                    $(".listAdd2").append(temp1);
+                })
+            })
+        })
+    })
+    var downPdf = document.getElementById("renderPdf");
+    downPdf.onclick = function () {
+        html2canvas(document.body, {
+            onrendered: function (canvas) {
+
+                var contentWidth = canvas.width;
+                var contentHeight = canvas.height;
+                var pageHeight = contentWidth / 592.28 * 841.89;
+                var leftHeight = contentHeight;
+                var position = 0;
+                var imgWidth = 595.28;
+                var imgHeight = 592.28 / contentWidth * contentHeight;
+                var pageData = canvas.toDataURL('image/jpeg', 1.0);
+                var pdf = new jsPDF('', 'pt', 'a4');
+                if (leftHeight < pageHeight) {
+                    pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight);
+                } else {
+                    while (leftHeight > 0) {
+                        pdf.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+                        leftHeight -= pageHeight;
+                        position -= 841.89;
+                        if (leftHeight > 0) {
+                            pdf.addPage();
+                        }
+                    }
+                }
+                pdf.save('Patient.pdf');
+            }
+        })
+    }
+</script>
