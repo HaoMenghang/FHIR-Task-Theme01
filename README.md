@@ -1,4 +1,4 @@
-# FHIR-Task-Theme01
+# GOSH-FHIRworks2020-GettingData
 My project is: Generating letters, forms and documents prefilled from FHIR records (Word and PDF).
 
 My solution is by searching for user‘s own patient id, the patient can query his or her  personal information and some last observation data in two forms. Besides, patients can choose to download the forms to their computer in pdf format.
